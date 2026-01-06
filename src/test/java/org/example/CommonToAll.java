@@ -3,14 +3,16 @@ package org.example;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
+import java.time.Duration;
+
 public class CommonToAll {
 
     public WebDriver driver;
 
-    public void openBrowser(WebDriver driver,String url) throws InterruptedException {
+    public void openBrowser(WebDriver driver,String url) {
         driver.get(url);
         driver.manage().window().maximize();
-        Thread.sleep(2000);
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
     }
 
     public void closeBrowser(WebDriver driver){
